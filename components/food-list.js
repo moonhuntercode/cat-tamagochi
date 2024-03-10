@@ -7,7 +7,7 @@ export class foodList extends HTMLElement {
     super();
     this.innerHTML = `
     <hr>
-    <h1>List of Actions</h1>
+    <h2>List of Actions</h2>
     <div id="food_images">
     <img id="fish" src="${fish}" alt="fish">
     <img id="milk" src="${milk}" alt="milk">
