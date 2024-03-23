@@ -5,8 +5,9 @@ export class Footer extends HTMLElement {
   constructor() {
     super();
     // prettier-ignore
-    this.innerHTML = //html
-    `
+    this.innerHTML =
+      //html
+      `
     <hr>
     <div id="old">
     <a href="https://vitejs.dev" target="_blank">
@@ -16,12 +17,12 @@ export class Footer extends HTMLElement {
     <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
     
-    <div class="card">
+    
       <button id="btnReset" type="button">
       RESET</button>
-      </div>
+    
     <p class="read-the-docs">
-    Click on the Vite logo to learn more
+    Click on the Vite and JavaScript logo to learn more
     </p>
     </div>
     `;
