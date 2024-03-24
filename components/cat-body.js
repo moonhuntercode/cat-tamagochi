@@ -3,9 +3,11 @@ import { catReady } from "../main";
 export class catBody extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `
+    // prettier-ignore
+    this.innerHTML = //html
+    `
     <div id="cat_container">
-// cambiar imagen a gato 3d
+    // cambiar imagen a gato 3d
     <img id='cat' src="${catReady.catSad}" alt="cat1">
     
     </div>

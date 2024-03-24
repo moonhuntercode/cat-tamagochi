@@ -6,12 +6,15 @@ export const catReady = {
   catWhiteHappy: catWhiteHappy,
 };
 
-import { catBody, lifeState, foodList, Footer, MessageStates } from "./components";
+
+import { catBody, lifeState, foodList, Footer, MessageStates, Login } from "./components";
 
 // prettier-ignore
-document.querySelector("#app").innerHTML =  //html
-`
+document.querySelector("#app").innerHTML =
+  //html
+  `
 <life-state></life-state>
+<login-component></login-component>
 <cat-body></cat-body>
 <messages-states></messages-states>
 <food-list></food-list>
