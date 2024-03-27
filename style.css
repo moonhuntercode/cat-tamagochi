@@ -191,13 +191,15 @@ login-component{
 }
 #login_container{
   width: 200px;
-  height: 150px;
-  overflow: scroll;
+  height: 45%;
+  font-size: 2vh;
   border-radius: 10px;
-  font-size: 2.3vw;
   font-weight: bold;
   background:white;
   border: 3px solid greenyellow;
+  overflow: scroll;
+    overflow-x: hidden;
+
  & label{
    text-align: center;
    display: block;

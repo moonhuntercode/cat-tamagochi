@@ -1,11 +1,11 @@
 import "./style.css";
 import catWhiteHappy from "./imgs/cat-white-happy.png";
+import cat_black_skin from "./imgs/cat-black-skin-cute--lleno.png";
 import catSad from "./imgs/cat-white-sad.png";
 export const catReady = {
   catSad: catSad,
   catWhiteHappy: catWhiteHappy,
 };
-
 
 import { catBody, lifeState, foodList, Footer, MessageStates, Login } from "./components";
 
@@ -33,6 +33,7 @@ function aumentaVida(life) {
         cat.src = `${catWhiteHappy}`;
         msg.textContent = "muchas gracias,+ comida!";
       } else if (life.value >= 100) {
+        cat.src = `${cat_black_skin}`;
         msg.textContent = "muchas gracias, me llené!";
       } else {
         cat.src = `${catReady.catSad}`;
