@@ -189,7 +189,12 @@ login-component{
   right: 0;
   top: 50px;
 }
+img.cat_Icon{
+  width: 100px;
+  cursor: pointer;
+}
 #login_container{
+  visibility: hidden;
   width: 200px;
   height: 45%;
   font-size: 2vh;
@@ -197,9 +202,10 @@ login-component{
   font-weight: bold;
   background:white;
   border: 3px solid greenyellow;
-  overflow: scroll;
-    overflow-x: hidden;
-
+    overflow: hidden;
+& img.cat_Icon{
+  width: 100px;
+}
  & label{
    text-align: center;
    display: block;

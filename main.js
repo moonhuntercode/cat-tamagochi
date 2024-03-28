@@ -20,6 +20,21 @@ document.querySelector("#app").innerHTML =
 <food-list></food-list>
 <footer-component></footer-component> 
   `;
+const firstCatIcon = document.querySelector("login-component > img ");
+console.log(firstCatIcon);
+function mostrarVentana_uno() {
+  console.log("click on cat icon");
+  const form = document.querySelector("#login_container");
+  // form.style.visibility = "visible";
+
+  if (form.style.visibility !== "visible") {
+    form.style.visibility = "visible";
+  } else {
+    form.style.visibility = "hidden";
+  }
+}
+
+firstCatIcon.addEventListener("click", mostrarVentana_uno);
 
 const msg = document.querySelector("div#messages_container>h1");
 function aumentaVida(life) {
