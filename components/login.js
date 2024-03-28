@@ -1,4 +1,5 @@
 import catIcon from "../imgs/cat-icon-login-2.webp";
+import "./cat-svg.js";
 export class Login extends HTMLElement {
   constructor() {
     super();
@@ -6,7 +7,8 @@ export class Login extends HTMLElement {
     this.innerHTML =
       /*html*/
       `
-      <img class="cat_Icon" src="${catIcon}" alt="cat-icon">
+      <cat-svg></cat-svg>
+<!--      <img class="cat_Icon" src="${catIcon}" alt="cat-icon">-->
 
       <section id="login_container">
       <img class="cat_Icon" src="${catIcon}" alt="cat-icon">

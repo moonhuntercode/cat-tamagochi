@@ -5,12 +5,12 @@ export class catBody extends HTMLElement {
     super();
     // prettier-ignore
     this.innerHTML =
-      //html
+      /*html*/
       `
     <div id="cat_container">
     <!// cambiar imagen a gato 3d-->
     <img id='cat' src="${catReady.catSad}" alt="cat1">
-    
+    <section id="3d_letrero">3D</section> 
     </div>
     
     `;

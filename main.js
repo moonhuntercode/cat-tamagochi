@@ -1,6 +1,6 @@
 import "./style.css";
 import catWhiteHappy from "./imgs/cat-white-happy.png";
-import cat_black_skin from "./imgs/cat-black-skin-cute--lleno.png";
+import cat_black_skin from "./imgs/cat-black-skin-cute--lleno-2.png";
 import catSad from "./imgs/cat-white-sad.png";
 export const catReady = {
   catSad: catSad,
@@ -20,7 +20,9 @@ document.querySelector("#app").innerHTML =
 <food-list></food-list>
 <footer-component></footer-component> 
   `;
-const firstCatIcon = document.querySelector("login-component > img ");
+const firstCatIcon = document.querySelector("login-component  svg");
+
+// tests
 console.log(firstCatIcon);
 function mostrarVentana_uno() {
   console.log("click on cat icon");
@@ -28,8 +30,11 @@ function mostrarVentana_uno() {
   // form.style.visibility = "visible";
 
   if (form.style.visibility !== "visible") {
+    firstCatIcon.style.stroke = "none";
     form.style.visibility = "visible";
   } else {
+    firstCatIcon.style.stroke = "#ef4";
+
     form.style.visibility = "hidden";
   }
 }
