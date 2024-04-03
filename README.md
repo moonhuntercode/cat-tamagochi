@@ -11,7 +11,11 @@ eso podemos usarlo pa presentar en trabajo de
 estadística  con generación de gráficos -->
 <!-- *- [❌] aplicar webservices,pwa,para 
 que funcione ofline jeje -->
-<!-- *- [❌]  -->
+<!-- *- [❌]  cambiar diseño a aesthetic y runas -->
+<!-- *- [❌]  modificar colores-->
+<!-- *- [❌]  usar una mejor paleta de colores-->
+
+
 
 
 
