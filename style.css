@@ -17,7 +17,6 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
-  
 }
 a:hover {
   color: #535bf2;
@@ -33,7 +32,6 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-
 }
 
 .logo {
@@ -49,10 +47,9 @@ h1 {
   filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
-
 .read-the-docs {
-  grid-column: 1/ auto ;
-  grid-row: 2/ end;
+  grid-column: 1 / auto;
+  grid-row: 2 / end;
   color: #888;
 }
 
@@ -104,7 +101,6 @@ html {
 /* reset end */
 
 #app {
-  
   display: grid;
   grid-template-rows: 1fr 200px repeat(3, 1fr);
   grid-template-columns: 1fr;
@@ -143,7 +139,7 @@ progress#life {
   color: #0a10ab;
   border-radius: var(--border-r-progress);
   &::-webkit-progress-bar {
-  border-radius: var(--border-r-progress);
+    border-radius: var(--border-r-progress);
     background: white;
     /* color of progress bar */
     color: #0a10ab;
@@ -156,83 +152,98 @@ progress#life {
     background: var(--bg-progress-value);
   }
 }
-#progress_container{
+#progress_container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
-  & img{
+  & img {
     position: absolute;
     z-index: 2;
     left: 0;
     height: 100%;
   }
 }
-cat-body{
-  height: 10px;
-  & #cat_container > #3d_letrero{
+cat-body {
+  
+  & #cat_container  {
+    height: 120px;
+    width: 600px;
+    position: relative;
+    z-index: 1;
+    left: 10px;
+    top: 30px;
+    width: 40px;
+    background: none;
+    color: #000;
+    & #letrero_3d {
+      cursor: pointer;
+      position: absolute;
+      width: 250px !important;
+      height: 50px;
+      background: red;
+      color: #ffffff;
+    }
+  }
+}
+  #letrero_3d {
   position: absolute;
-  z-index: 4;
-  left: 10px;
-  top: 30px;
-  width: 40px;
-  background: red;
 }
+
+#messages_container > h1 {
+  font-size: 2.6vh;
+  overflow-y: scroll;
+  height: 100%;
 }
-#messages_container >h1 {
-    font-size: 2.6vh;
-    overflow-y: scroll;
-    height: 100%;
-}
-#old{
+#old {
   width: 100%;
   grid-gap: 40px;
   display: inline-grid;
-  grid-template-columns: repeat(auto-fill,minmax(110px,1fr));
-  grid-template-rows: 1fr 60px ;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-template-rows: 1fr 60px;
   /* grid-auto-flow: column; */
 }
-login-component{
+login-component {
   position: absolute;
   z-index: 1;
   right: 0;
   top: 50px;
 }
-img.cat_Icon{
+img.cat_Icon {
   width: 100px;
   cursor: pointer;
 }
-#login_container{
+#login_container {
   visibility: hidden;
   width: 200px;
   height: 45%;
   font-size: 2vh;
   border-radius: 10px;
   font-weight: bold;
-  background:white;
+  background: white;
   border: 3px solid greenyellow;
-    overflow: hidden;
-    & label{
-      text-align: center;
-      display: block;
-      width: 100%;
-      
-      color: black;
-    }
-    & input{
-      display: block;
-      width: 100%;
-   height: 25%;
- }
-}
-cat-svg > svg{
-        width: 100px;
-        stroke: black;
-        stroke-width: 13px;
-        
-        stroke: #ef4;
-        fill: black;
+  overflow: hidden;
+  & label {
+    text-align: center;
+    display: block;
+    width: 100%;
 
-        cursor: pointer;
-      }
+    color: black;
+  }
+  & input {
+    display: block;
+    width: 100%;
+    height: 25%;
+  }
+}
+cat-svg > svg {
+  width: 100px;
+  stroke: black;
+  stroke-width: 13px;
+
+  stroke: #ef4;
+  fill: black;
+
+  cursor: pointer;
+}
