@@ -69,9 +69,12 @@ function reset() {
 }
 
 // three js config start
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import modelo1 from "/model/cat-solo-2.glb";
+
 /* initialize GUI
 lo inizializamos arriba,
 para que el hoisting de js 
@@ -153,14 +156,13 @@ letrero_3d.addEventListener("click", () => {
 const loader = new GLTFLoader();
 
 // Optional: Provide a DRACOLoader instance to decode compressed mesh data
-// const dracoLoader = new DRACOLoader();
-// dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
-// loader.setDRACOLoader( dracoLoader );
-
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
+loader.setDRACOLoader(dracoLoader);
 // Load a glTF resource
 loader.load(
   // resource URL
-  "./model/cat-solo-2.glb",
+  `${modelo1}`,
   // called when the resource is loaded
   function (gltf) {
     scene.add(gltf.scene);
