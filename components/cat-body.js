@@ -9,7 +9,9 @@ export class catBody extends HTMLElement {
       `
     <div id="cat_container">
     <!// cambiar imagen a gato 3d-->
+    <section id="character_container">
     <img id='cat' src="${catReady.catSad}" alt="cat1">
+    </section>
     <br>
     <div id="letrero_3d">3D</div> 
     <br>
