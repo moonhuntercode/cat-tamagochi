@@ -73,7 +73,6 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import modelo1 from "/model/cat-solo-2.glb";
 
 /* initialize GUI
 lo inizializamos arriba,
@@ -82,7 +81,6 @@ no nos moleste a la hora
 de usar lo en cualquier parte */
 const gui = new GUI();
 
-document.querySelector(".close-bottom").click();
 // camera start
 const camera = new THREE.PerspectiveCamera(
   35,
@@ -110,6 +108,9 @@ renderer.setPixelRatio(window.devicePixelRatio);
 
 // orbit controls
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0.5, 0);
+controls.enablePan = true;
+controls.enableDamping = true;
 
 // light
 const mainLight = new THREE.DirectionalLight(0xffffff, 2);
@@ -142,66 +143,87 @@ letrero_3d.addEventListener("click", () => {
     location.reload();
   }
 });
-// personaje.appendChild(renderer.domElement);
 
-// objeto 1 start - Mesh- malla
+// agregando al container visible
+personaje.appendChild(renderer.domElement);
+function loadModels() {
+  // objeto 1 start - Mesh- malla
 
-// const geometry = new THREE.BoxGeometry(1, 1, 1);
+  // const geometry = new THREE.BoxGeometry(1, 1, 1);
 
-// const material = new THREE.MeshBasicMaterial({ color: "teal" });
-// const cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
-// objeto 1 end
-// Instantiate a loader
-const loader = new GLTFLoader();
+  // const material = new THREE.MeshBasicMaterial({ color: "teal" });
+  // const cube = new THREE.Mesh(geometry, material);
+  // scene.add(cube);
+  // objeto 1 end
+  // Instantiate a loader
 
-// Optional: Provide a DRACOLoader instance to decode compressed mesh data
-const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath("/examples/jsm/libs/draco/");
-loader.setDRACOLoader(dracoLoader);
-// Load a glTF resource
-loader.load(
-  // resource URL
-  `${modelo1}`,
-  // called when the resource is loaded
-  function (gltf) {
-    scene.add(gltf.scene);
-    const modelo = gltf.scene;
+  // Optional: Provide a DRACOLoader instance to decode compressed mesh data
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("./node_modules/three/examples/jsm/libs/draco/gltf");
+  const loader = new GLTFLoader();
 
-    const value = 0.5;
-    modelo.scale.set(value, value, value);
-    modelo.position.set(0, 0, -2);
-    // añadiendo GUI para mover dinámicamente
-    gui.add(modelo.position, "x", -5, 5).name("Mod-Pos X Axis");
-    // modelo.position.x = 0;
-    gui.add(modelo.position, "y", -5, 5).name("Mod-Pos y Axis");
-    modelo.position.y = -1;
-    gui.add(modelo.position, "z", -5, 5).name("Mod-Pos z Axis");
-    // modelo.position.z = 0;
-    gui.add(modelo.rotation, "x", -1, 2).name("Mod-Rotate X Axis");
-    modelo.rotation.x = -1;
-    gui.add(modelo.rotation, "y", -2, 2).name("Mod-Rotate Y Axis");
-    modelo.rotation.y = -1.5;
-    gui.add(modelo.rotation, "z", -2, 2).name("Mod-Rotate z Axis");
-    modelo.rotation.z = -1.1;
+  loader.setDRACOLoader(dracoLoader);
+  // DRACOLOADER ENDS
 
-    gltf.animations; // Array<THREE.AnimationClip>
-    gltf.scene; // THREE.Group
-    gltf.scenes; // Array<THREE.Group>
-    gltf.cameras; // Array<THREE.Camera>
-    gltf.asset; // Object}
-    // camera.lookAt(gltf.scene.position);
-  },
-  // called while loading is progressing
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-  },
-  // called when loading has errors
-  function (error) {
-    console.log("An error happened");
-  }
-);
-camera.position.z = 3;
+  const option = {
+    model1: "/model/cat-solo.glb",
+  };
+  let modeloElegido = option.model1;
+  // Load a glTF resource
+  loader.load(
+    // resource URL
+    `${modeloElegido}`,
+    // called when the resource is loaded
+    function (gltf) {
+      scene.add(gltf.scene);
+      const modelo = gltf.scene;
+      modelo.traverse((e) => {
+        if (e.isMesh == true) {
+          e.castShadow = true;
+          e.recieveShadow = true;
+        }
+      });
+
+      const value = 0.5;
+      modelo.scale.set(value, value, value);
+      modelo.position.set(0, 0, -2);
+      // añadiendo GUI para mover dinámicamente
+      gui.add(modelo.position, "x", -5, 5).name("Mod-Pos X Axis");
+      // modelo.position.x = 0;
+      gui.add(modelo.position, "y", -5, 5).name("Mod-Pos y Axis");
+      modelo.position.y = -1;
+      gui.add(modelo.position, "z", -5, 5).name("Mod-Pos z Axis");
+      // modelo.position.z = 0;
+      gui.add(modelo.rotation, "x", -1, 2).name("Mod-Rotate X Axis");
+      modelo.rotation.x = -1;
+      gui.add(modelo.rotation, "y", -2, 2).name("Mod-Rotate Y Axis");
+      // modelo.rotation.y = -1.5;
+      gui.add(modelo.rotation, "z", -2, 2).name("Mod-Rotate z Axis");
+      modelo.rotation.z = -1.1;
+
+      gltf.animations; // Array<THREE.AnimationClip>
+      gltf.scene; // THREE.Group
+      gltf.scenes; // Array<THREE.Group>
+      gltf.cameras; // Array<THREE.Camera>
+      gltf.asset; // Object}
+      // camera.lookAt(gltf.scene.position);
+
+      // click on gui to close
+      document.querySelector(".close-bottom").click();
+    },
+    // called while loading is progressing
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    },
+    // called when loading has errors
+    function (error) {
+      console.log("An error happened");
+    }
+  );
+  // END  MODEL
+}
+loadModels();
+
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
