@@ -166,7 +166,7 @@ function loadModels() {
   // DRACOLOADER ENDS
 
   const option = {
-    model1: "/model/cat-solo.glb",
+    model1: "./models/cat-solo.glb",
   };
   let modeloElegido = option.model1;
   // Load a glTF resource
