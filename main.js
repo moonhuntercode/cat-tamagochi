@@ -2,14 +2,30 @@ import "./style.css";
 import catWhiteHappy from "./imgs/cat-white-happy.png";
 import cat_black_skin from "./imgs/cat-black-skin-cute--lleno-2.png";
 import catSad from "./imgs/cat-white-sad.png";
+
+// three js config start
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GUI } from "dat.gui";
+
+// import modeloCat from "./models/cat-solo.glb";
+
+/* initialize GUI
+lo inizializamos arriba,
+para que el hoisting de js 
+no nos moleste a la hora
+de usar lo en cualquier parte */
+const gui = new GUI();
+
+import { catBody, lifeState, foodList, Footer, MessageStates, Login } from "./components";
 
 export const catReady = {
   catSad: catSad,
   catWhiteHappy: catWhiteHappy,
 };
 
-import { catBody, lifeState, foodList, Footer, MessageStates, Login } from "./components";
 
 // prettier-ignore
 document.querySelector("#app").innerHTML =
@@ -68,18 +84,6 @@ function reset() {
   msg.textContent = "tengo hambre! toca, la comida o leche xd,donde quieras";
 }
 
-// three js config start
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-
-/* initialize GUI
-lo inizializamos arriba,
-para que el hoisting de js 
-no nos moleste a la hora
-de usar lo en cualquier parte */
-const gui = new GUI();
 
 // camera start
 const camera = new THREE.PerspectiveCamera(
@@ -95,7 +99,7 @@ gui.add(camera.position, "x", -3, 1.5).name("CAM-POS X Axis");
 gui.add(camera.position, "y", -3, 1.5).name("CAM-POS Y Axis");
 // camera.position.y=125; //(VALUE)
 gui.add(camera.position, "z", -3, 10).name("CAM-POS Z Axis");
-// camera.position.z=125; //(VALUE)
+camera.position.z = 3; //(VALUE)
 
 // scene
 const scene = new THREE.Scene();
@@ -103,6 +107,7 @@ const scene = new THREE.Scene();
 
 // renderer
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+let heightRatio = 1.5;
 renderer.setSize(window.innerWidth / 3, window.innerHeight / 3);
 renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -132,7 +137,6 @@ letrero_3d.addEventListener("click", () => {
     renderer.domElement;
   } else {
     letrero_3d.textContent = "3d";
-
     personaje.innerHTML = "";
     const img = document.createElement("img");
     img.src = `${catSad}`;
@@ -144,7 +148,7 @@ letrero_3d.addEventListener("click", () => {
   }
 });
 
-// agregando al container visible
+// agregando al container visible para tests
 personaje.appendChild(renderer.domElement);
 function loadModels() {
   // objeto 1 start - Mesh- malla
@@ -172,10 +176,9 @@ function loadModels() {
   // Load a glTF resource
   loader.load(
     // resource URL
-    `${modeloElegido}`,
+    `${option.model1}`,
     // called when the resource is loaded
     function (gltf) {
-      scene.add(gltf.scene);
       const modelo = gltf.scene;
       modelo.traverse((e) => {
         if (e.isMesh == true) {
@@ -189,24 +192,26 @@ function loadModels() {
       modelo.position.set(0, 0, -2);
       // añadiendo GUI para mover dinámicamente
       gui.add(modelo.position, "x", -5, 5).name("Mod-Pos X Axis");
-      // modelo.position.x = 0;
+      modelo.position.x = 0;
       gui.add(modelo.position, "y", -5, 5).name("Mod-Pos y Axis");
-      modelo.position.y = -1;
+      modelo.position.y = -1.1;
       gui.add(modelo.position, "z", -5, 5).name("Mod-Pos z Axis");
-      // modelo.position.z = 0;
+      modelo.position.z = -2.1;
       gui.add(modelo.rotation, "x", -1, 2).name("Mod-Rotate X Axis");
       modelo.rotation.x = -1;
       gui.add(modelo.rotation, "y", -2, 2).name("Mod-Rotate Y Axis");
-      // modelo.rotation.y = -1.5;
+      modelo.rotation.y = -1.6;
       gui.add(modelo.rotation, "z", -2, 2).name("Mod-Rotate z Axis");
       modelo.rotation.z = -1.1;
 
-      gltf.animations; // Array<THREE.AnimationClip>
-      gltf.scene; // THREE.Group
-      gltf.scenes; // Array<THREE.Group>
-      gltf.cameras; // Array<THREE.Camera>
-      gltf.asset; // Object}
-      // camera.lookAt(gltf.scene.position);
+      // gltf.animations; // Array<THREE.AnimationClip>
+      // gltf.scene; // THREE.Group
+      // gltf.scenes; // Array<THREE.Group>
+      // gltf.cameras; // Array<THREE.Camera>
+      // gltf.asset; // Object}
+      // // camera.lookAt(gltf.scene.position);
+      scene.add(modelo);
+      animate();
 
       // click on gui to close
       document.querySelector(".close-bottom").click();
@@ -218,6 +223,7 @@ function loadModels() {
     // called when loading has errors
     function (error) {
       console.log("An error happened");
+      console.log(error);
     }
   );
   // END  MODEL
