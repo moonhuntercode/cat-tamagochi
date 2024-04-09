@@ -181,12 +181,15 @@ progress#life {
 }
 login-component {
   position: absolute;
-  z-index: 1;
-  right: 0;
+  z-index: 2;
+  top: 50px;
+  right: -50px;
   top: 50px;
   & #login_container {
+    position: relative;
+    right: 40px;
   visibility: hidden;
-  width: 200px;
+  width: 85%;
   height: 45%;
   font-size: 2vh;
   border-radius: 10px;
@@ -268,7 +271,7 @@ background: none;
   
   width: 100%;
 display: grid;
-grid-template-columns: repeat(minmax(1,2), 1fr);
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 height: auto;
 place-content:  center;
 place-items: center;
