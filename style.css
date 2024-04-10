@@ -269,10 +269,13 @@ background: none;
 }
 #cat_container > #character_container{
   
+  height: max-content;
+  max-height: 150px;
+
+  /* grid-template-rows: max-content; */
   width: 100%;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-height: auto;
 place-content:  center;
 place-items: center;
 
@@ -281,6 +284,8 @@ place-items: center;
     width: 100%;
     min-width: 100px;
     min-height: 100px;
+  max-height: 150px;
+max-width: fit-content;
     height: auto;
     position: relative;
   }

@@ -15,6 +15,7 @@ export class catBody extends HTMLElement {
     <br>
     <div id="letrero_3d">3D</div> 
     <br>
+    <span></span>
     </div>
     
     `;

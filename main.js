@@ -248,3 +248,17 @@ aumentaVida(
   document.querySelector("img#fish"),
   document.querySelector("img#milk")
 );
+
+// start
+const pleasantText =
+  "There is a handle! Let's try relaxing while resizing the awesome canvas! ->";
+
+const onResize = (entries) => {
+  document.getElementsByTagName(
+    "span"
+  )[0].innerHTML = `${pleasantText} <b>${entries[0].target.offsetWidth}x${entries[0].target.offsetHeight}</b>`;
+};
+
+const canvas = document.getElementsByTagName("canvas")[0];
+const observer = new ResizeObserver(onResize);
+observer.observe(canvas);
