@@ -99,7 +99,7 @@ gui.add(camera.position, "x", -3, 1.5).name("CAM-POS X Axis");
 gui.add(camera.position, "y", -3, 1.5).name("CAM-POS Y Axis");
 // camera.position.y=125; //(VALUE)
 gui.add(camera.position, "z", -3, 10).name("CAM-POS Z Axis");
-camera.position.z = 8; //(VALUE)
+camera.position.z = 6.5; //(VALUE)
 
 // scene
 const scene = new THREE.Scene();

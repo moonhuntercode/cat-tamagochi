@@ -14,6 +14,9 @@ que funcione ofline jeje -->
 <!-- *- [❌]  cambiar diseño a aesthetic y runas -->
 <!-- *- [❌]  modificar colores-->
 <!-- *- [❌]  usar una mejor paleta de colores-->
+<!-- *- [❌]  el modelo 3d todavía no se puede 
+visualizar en producción-->
+
 
 
 
