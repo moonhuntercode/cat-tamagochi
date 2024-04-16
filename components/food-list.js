@@ -5,7 +5,9 @@ import replay from "../imgs/replay-icon.png";
 export class foodList extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `
+    this.innerHTML =
+      /*html*/
+      `
     <hr>
     <h2>List of Actions</h2>
     <div id="food_images">

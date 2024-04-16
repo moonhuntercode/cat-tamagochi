@@ -1,6 +1,6 @@
 import barraVida from "../imgs/barra-vida.png";
 import corazonIcon from "../imgs/corazon-icon-r.png";
-export class lifeState extends HTMLElement {
+export class ProgressLifeComponent extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
@@ -11,4 +11,4 @@ export class lifeState extends HTMLElement {
     `;
   }
 }
-customElements.define("life-state", lifeState);
+customElements.define("progress-life-component", ProgressLifeComponent);

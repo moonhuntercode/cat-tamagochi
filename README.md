@@ -1,6 +1,6 @@
 # cat-tamagochi
 
-tamagochi mini-project beta
+cat tamagochi mini-project beta
 
 <!-- TODO: -->
 <!-- *- [❌]usar api de notificación:

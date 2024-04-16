@@ -1,7 +1,9 @@
 export class MessageStates extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `
+    this.innerHTML =
+      /* html*/
+      `
     <div id="messages_container">
     <h1>tengo hambre!
      toca, la comida o leche  xd,donde quieras

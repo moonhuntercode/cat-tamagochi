@@ -19,19 +19,26 @@ no nos moleste a la hora
 de usar lo en cualquier parte */
 const gui = new GUI();
 
-import { catBody, lifeState, foodList, Footer, MessageStates, Login } from "./components";
+import {
+  catBody,
+  ProgressLifeComponent,
+  foodList,
+  Footer,
+  MessageStates,
+  Login,
+} from "./components";
 
 export const catReady = {
   catSad: catSad,
   catWhiteHappy: catWhiteHappy,
 };
 
-
 // prettier-ignore
 document.querySelector("#app").innerHTML =
   //html
   `
-<life-state></life-state>
+<progress-life-component>
+</progress-life-component>
 <login-component></login-component>
 <cat-body></cat-body>
 <messages-states></messages-states>
@@ -72,7 +79,7 @@ function aumentaVida(life, cat, fishImage, milkImage) {
         msg.textContent = "muchas gracias, me llené!";
       } else {
         cat.src = `${catReady.catSad}`;
-        msg.textContent = "tengo hambre!";
+        msg.textContent = "tengo hambre!,quiero más!";
       }
     });
   });
@@ -99,7 +106,7 @@ gui.add(camera.position, "x", -3, 1.5).name("CAM-POS X Axis");
 gui.add(camera.position, "y", -3, 1.5).name("CAM-POS Y Axis");
 // camera.position.y=125; //(VALUE)
 gui.add(camera.position, "z", -3, 10).name("CAM-POS Z Axis");
-camera.position.z = 6.5; //(VALUE)
+camera.position.z = 7.5; //(VALUE)
 
 // scene
 const scene = new THREE.Scene();
@@ -149,7 +156,7 @@ letrero_3d.addEventListener("click", () => {
 });
 
 // agregando al container visible para tests
-personaje.appendChild(renderer.domElement);
+// personaje.appendChild(renderer.domElement);
 function loadModels() {
   // objeto 1 start - Mesh- malla
 
