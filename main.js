@@ -99,7 +99,7 @@ gui.add(camera.position, "x", -3, 1.5).name("CAM-POS X Axis");
 gui.add(camera.position, "y", -3, 1.5).name("CAM-POS Y Axis");
 // camera.position.y=125; //(VALUE)
 gui.add(camera.position, "z", -3, 10).name("CAM-POS Z Axis");
-camera.position.z = 3; //(VALUE)
+camera.position.z = 8; //(VALUE)
 
 // scene
 const scene = new THREE.Scene();
@@ -196,7 +196,7 @@ function loadModels() {
       gui.add(modelo.position, "y", -5, 5).name("Mod-Pos y Axis");
       modelo.position.y = -1.1;
       gui.add(modelo.position, "z", -5, 5).name("Mod-Pos z Axis");
-      modelo.position.z = -2.1;
+      modelo.position.z = 0;
       gui.add(modelo.rotation, "x", -1, 2).name("Mod-Rotate X Axis");
       modelo.rotation.x = -1;
       gui.add(modelo.rotation, "y", -2, 2).name("Mod-Rotate Y Axis");
@@ -248,17 +248,3 @@ aumentaVida(
   document.querySelector("img#fish"),
   document.querySelector("img#milk")
 );
-
-// start
-const pleasantText =
-  "There is a handle! Let's try relaxing while resizing the awesome canvas! ->";
-
-const onResize = (entries) => {
-  document.getElementsByTagName(
-    "span"
-  )[0].innerHTML = `${pleasantText} <b>${entries[0].target.offsetWidth}x${entries[0].target.offsetHeight}</b>`;
-};
-
-const canvas = document.getElementsByTagName("canvas")[0];
-const observer = new ResizeObserver(onResize);
-observer.observe(canvas);
