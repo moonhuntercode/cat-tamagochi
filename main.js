@@ -136,14 +136,14 @@ const personaje = document.querySelector("#character_container");
 // 3d actions}
 const letrero_3d = document.querySelector("#letrero_3d");
 letrero_3d.addEventListener("click", () => {
-  if (letrero_3d.textContent !== "2d") {
-    letrero_3d.textContent = "2d";
+  if (letrero_3d.textContent !== "2D") {
+    letrero_3d.textContent = "2D";
 
     personaje.innerHTML = "";
     personaje.appendChild(renderer.domElement);
     renderer.domElement;
   } else {
-    letrero_3d.textContent = "3d";
+    letrero_3d.textContent = "3D";
     personaje.innerHTML = "";
     const img = document.createElement("img");
     img.src = `${catSad}`;

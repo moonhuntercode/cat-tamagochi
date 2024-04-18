@@ -11,10 +11,15 @@ export class foodList extends HTMLElement {
     <hr>
     <h2>List of Actions</h2>
     <div id="food_images">
+
     <img id="fish" src="${fish}" alt="fish">
+
     <img id="milk" src="${milk}" alt="milk">
-    <img src="${replay}" alt="replay icon" id="replay_icon">
-    <br>
+    
+    <img id="replay_icon"
+    src="${replay}"
+    alt="replay icon">
+    
     </div>
     `;
   }

@@ -127,10 +127,12 @@ messages-states > #messages_container {
 food-list{
   text-align: center;
   & #food_images {
+    width: 100%;
     background-color: none;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    place-content: center space-around;
+    
     & img {
       width: 10vh;
       cursor: pointer;
@@ -280,6 +282,7 @@ cat-body {
       cursor: pointer;
       background: red;
       color: #ffffff;
+      font-size: x-large;
       position: absolute;
       &:hover {
         background: yellow;
