@@ -1,3 +1,4 @@
+// food-list.js
 import fish from "../imgs/fish.png";
 import milk from "../imgs/milk-1.png";
 import replay from "../imgs/replay-icon.png";

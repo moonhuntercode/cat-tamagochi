@@ -1,9 +1,13 @@
+// dame el código mejorado, comentado, no borres comentarios, sugerencias :
+// main.js
+// Importación de estilos y recursos multimedia
 import "./style.css";
 import catWhiteHappy from "./imgs/cat-white-happy.png";
 import cat_black_skin from "./imgs/cat-black-skin-cute--lleno-2.png";
 import catSad from "./imgs/cat-white-sad.png";
 
 // three js config start
+// Configuración y utilidades de Three.js
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -11,14 +15,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GUI } from "dat.gui";
 
 // import modeloCat from "./models/cat-solo.glb";
-
-/* initialize GUI
-lo inizializamos arriba,
-para que el hoisting de js 
-no nos moleste a la hora
-de usar lo en cualquier parte */
-const gui = new GUI();
-
+// Componentes personalizados
 import {
   catBody,
   ProgressLifeComponent,
@@ -28,27 +25,39 @@ import {
   Login,
 } from "./components";
 
+// Inicialización de GUI
+/* initialize GUI
+  lo inizializamos arriba,
+  para que el hoisting de js 
+  no nos moleste a la hora
+  de usar lo en cualquier parte */
+const gui = new GUI();
+
+// Exportación de referencias de estados del gato
 export const catReady = {
   catSad: catSad,
   catWhiteHappy: catWhiteHappy,
 };
 
+// Renderizado inicial del HTML en el contenedor principal
 // prettier-ignore
 document.querySelector("#app").innerHTML =
-  //html
-  `
-<progress-life-component>
-</progress-life-component>
-<login-component></login-component>
-<cat-body></cat-body>
-<messages-states></messages-states>
-<food-list></food-list>
-<footer-component></footer-component> 
-  `;
-const firstCatIcon = document.querySelector("login-component  svg");
+    //html
+    `
+  <progress-life-component>
+  </progress-life-component>
+  <login-component></login-component>
+  <cat-body></cat-body>
+  <messages-states></messages-states>
+  <food-list></food-list>
+  <footer-component></footer-component> 
+    `;
 
+// Lógica para manejo de íconos en el componente de inicio de sesión
+const firstCatIcon = document.querySelector("login-component svg");
 // tests
 console.log(firstCatIcon);
+
 function mostrarVentana_uno() {
   console.log("click on cat icon");
   const form = document.querySelector("#login_container");
@@ -67,6 +76,7 @@ function mostrarVentana_uno() {
 firstCatIcon.addEventListener("click", mostrarVentana_uno);
 
 const msg = document.querySelector("div#messages_container>h1");
+
 function aumentaVida(life, cat, fishImage, milkImage) {
   [fishImage, milkImage].forEach((image) => {
     image.addEventListener("click", () => {
@@ -84,13 +94,13 @@ function aumentaVida(life, cat, fishImage, milkImage) {
     });
   });
 }
+
 const replayImage = document.querySelector("img#replay_icon");
 function reset() {
   life.value = 0;
   cat.src = `${catReady.catSad}`;
   msg.textContent = "tengo hambre! toca, la comida o leche xd,donde quieras";
 }
-
 
 // camera start
 const camera = new THREE.PerspectiveCamera(
